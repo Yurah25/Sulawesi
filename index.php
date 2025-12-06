@@ -10,6 +10,7 @@
     <Link rel="stylesheet" type="text/css" href="assets/css/indexpage.css">
 </head>
 <body>
+    <div class="body">
     <header>
         <p>SulaPedia</p>
         <nav>
@@ -24,7 +25,7 @@
     <main>
         <section class="hero">
             <div class="pulau">
-                <img src="/assets/img/pulau sulawesi.png">
+                <img src="/assets/img/pulau sulawesi.png" alt="pulau k">
                 <div class="text-pulau">
                     <h1>Selamat datang di Sulapedia</h1>
                     <P>Hi,</P>
@@ -36,7 +37,7 @@
             <h1>Artikel</h1>
             <div class="card-container">
                 <div class="card">
-
+                    <img href="assets/img/">
                 </div>
                 <div class="card">
 
@@ -56,5 +57,7 @@
             </div>
         </section>
     </main>
+    </div>
+    <?php include("includes/footer.php/footer.php") ?>
 </body>
 </html>

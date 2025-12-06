@@ -1,0 +1,48 @@
+footer{
+    display: flex;
+    padding: 52px 81px 52px 81px;
+    height: 322px;
+    width: auto;
+    gap: 330px;
+    color:#ffffff;
+    background-color: #96a78d;
+}
+
+.explore ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.explore a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contact h1{
+    margin-bottom: 0px;
+}
+
+.logo{
+    display: flex;
+    color: #ffffff;
+    gap: 10px;
+}
+
+.logo img{
+    width: 24px;
+    height: auto;
+}
