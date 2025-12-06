@@ -33,7 +33,27 @@
             </div>
         </section>
         <section class="artikel">
-            hali
+            <h1>Artikel</h1>
+            <div class="card-container">
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+            </div>
         </section>
     </main>
 </body>
