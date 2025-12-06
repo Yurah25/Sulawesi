@@ -23,7 +23,17 @@
     </header>
     <main>
         <section class="hero">
-
+            <div class="pulau">
+                <img src="/assets/img/pulau sulawesi.png">
+                <div class="text-pulau">
+                    <h1>Selamat datang di Sulapedia</h1>
+                    <P>Hi,</P>
+                    <p>Mulai Petualanganmu di Sulawesi</p>
+                </div>
+            </div>
+        </section>
+        <section class="artikel">
+            hali
         </section>
     </main>
 </body>
