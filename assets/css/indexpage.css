@@ -93,5 +93,47 @@ nav ul{
 
 .artikel h1{
     text-align: center;
+    
+}
+
+.about{
+    text-align: center;
+    min-height: 100vh ;
+    min-height: 100dvh;
+    font-size: 30px;
+}
+
+.kontak-all{
+    margin-top: 77px;
+    gap: 78px;
+    display: flex;
+    justify-content: center;
+}
+
+.kontak-all {
+    font-size: 15px;
+}
+
+.kontak-all p{
+    font-size: 25px;
+}
+
+.card-tim img{
+    aspect-ratio: 1;
+    background-position: center;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    box-shadow: 1px 2px #00000050;
+    max-width:298px;
+}
+
+.card-tim{
+    margin-bottom: 84px;
+    max-width: 361px;
+    padding: 24px 30px 70px 30px;
+    border-radius: 23.41px;
+    border: 1px solid #0A400C;
+    background: linear-gradient(to bottom, #D9E9CF 80%, #96A18F 100%);
 }
 

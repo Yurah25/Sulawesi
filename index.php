@@ -56,6 +56,26 @@
                 </div>
             </div>
         </section>
+        <section class="about">
+            <h1>About Us</h1>
+            <div class="kontak-all">
+                <div class="card-tim">
+                    <img src="assets/img/4x6.jpg" alt="yusuf">
+                    <h1>Yusuf Rafii Ahmad</h1>
+                    <p>H1D024049</p>
+                </div>
+                <div class="card-tim">
+                    <img src="assets/img/pulau sulawesi.png" alt="Nayli">
+                    <h1>Nayli Ghassaniy L. N.</h1>
+                    <p>H1D024058</p>
+                </div>
+                <div class="card-tim">
+                    <img src="assets/img/pulau sulawesi.png" alt="Inas">
+                    <h1>M. Inas Pratama</h1>
+                    <p>H1D024063</p>
+                </div>
+            </div>
+        </section>
     </main>
     </div>
     <?php include("includes/footer.php/footer.php") ?>
