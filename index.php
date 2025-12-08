@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Jelajahi</a></li>
+                <li><a href="jelajah.php">Jelajahi</a></li>
                 <li><a href="#">quiz</a></li>
             </ul>
         </nav>
