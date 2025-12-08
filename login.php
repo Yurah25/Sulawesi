@@ -19,10 +19,10 @@
         <h1>Login</h1>
         <label for="email">Email </label>
         <input type="email" id="email" name="email" placeholder="Masukkan Email">
-        <label for="password">password</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Masukkan Password">
-        <a href="">forgot password?</a>
-        <input type="submit" id="submit">
+        <a href="" class="forgot">forgot password?</a>
+        <input type="submit" id="submit" value="Login">
         <p>dont have an account yet?<a href="regis.php"> Regist here</a></p>
     </form>
         

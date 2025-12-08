@@ -15,14 +15,17 @@
     <p>Create your account and explore the culture, cuisine, and tourism of Sulawesi in one platform</p>
     </div>
     <form action="" method="post">
-        <h1>Login</h1>
+        <h1>Sign up</h1>
+        <label for="email">Username </label>
+        <input type="text" id="username" name="username" placeholder="Masukkan Username">
         <label for="email">Email </label>
         <input type="email" id="email" name="email" placeholder="Masukkan Email">
-        <label for="password">password</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Masukkan Password">
-        <a href="">forgot password?</a>
-        <input type="submit" id="submit">
-        <p>dont have an account yet?<a href="regis.php"> Regist here</a></p>
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Masukkan Ulang Password">
+        <input type="submit" id="submit" value="Create Account">
+        <p>Already have an account?<a href="login.php" >Login in</a></p>
     </form>
 </body>
 </html>
