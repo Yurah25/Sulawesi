@@ -107,6 +107,89 @@ nav ul{
     
 }
 
+.headerartikel {
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.headerartikel .link-next {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.artikelkontainernya {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: linear-gradient(180deg, #D9E9CF 0%, #A4B099 100%); /* Gradasi hijau sage */
+    border: 1px solid #5A6C50;
+    border-radius: 20px;
+    overflow: hidden; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+}
+
+.card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-bottom: 1px solid #5A6C50;
+}
+
+.isi_card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.isi_card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.isi_card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #333;
+    flex-grow: 1; 
+}
+
+.detail {
+    display: inline-block;
+    background-color: #FFF; 
+    color: #000;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #5A6C50;
+    width: fit-content;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.detail:hover {
+    background-color: #f0f0f0;
+}
+
 .about{
     text-align: center;
     min-height: 100vh ;
@@ -150,3 +233,84 @@ nav ul{
     background: linear-gradient(to bottom, #D9E9CF 80%, #96A18F 100%);
 }
 
+@media (max-width: 1024px) {
+    header {
+        margin: 0 20px;
+    }
+    
+    main {
+        padding: 0 40px;
+    }
+    
+    .pulau img {
+        width: 100%; 
+        height: auto;
+    }
+    
+    .text-pulau {
+        margin-left: -100px;
+        margin-top: 100px;
+    }
+    
+    .artikel-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        margin: 0 10px;
+    }
+
+    nav ul {
+        gap: 20px;
+        font-size: 16px;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .pulau {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pulau img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .text-pulau {
+        margin: 0;
+        margin-top: 20px;
+        color: #123714;
+        text-align: center;
+    }
+
+    .text-pulau h1 {
+        font-size: 32px;
+        width: 100%; 
+    }
+    .artikel-container {
+        grid-template-columns: 1fr; 
+    }
+    
+    .kontak-all {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .main {
+        padding: 0 20px;
+    }
+}

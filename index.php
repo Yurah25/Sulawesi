@@ -1,3 +1,5 @@
+<?php include("config/database.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,27 +37,33 @@
         </section>
         <section class="artikel">
             <h1>Artikel</h1>
-            <div class="card-container">
-                <div class="card">
-                    <img href="assets/img/">
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
-                </div>
+    
+             <div class="headerartikel">
+                <a href="jelajah.php" class="link-next">Lihat Selanjutnya &rarr;</a>
             </div>
-        </section>
+
+            <div class="artikelkontainernya">
+            <?php
+            $query = mysqli_query($conn, "SELECT * FROM artikel LIMIT 6");
+            if(mysqli_num_rows($query) > 0){
+                while($row = mysqli_fetch_assoc($query)){
+            ?>
+                <div class="card">
+                    <img src="assets/img/<?php echo $row['gambar']; ?>" alt="<?php echo $row['judul']; ?>">
+                
+                    <div class="isi_card">
+                        <h3><?php echo $row['judul']; ?></h3>
+                        <p><?php echo substr($row['deskripsi'], 0, 120) . '...'; ?></p>
+                    
+                        <a href="detail.php?id=<?php echo $row['id']; ?>" class="detail">Lihat Detail</a>
+                    </div>
+                </div>
+            <?php 
+                }
+            }
+        ?>
+    </div>
+</section>
         <section class="about">
             <h1>About Us</h1>
             <div class="kontak-all">
