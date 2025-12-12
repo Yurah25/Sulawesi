@@ -109,7 +109,7 @@ nav ul{
 
 .headerartikel {
     display: flex;
-    align-self: flex-end;
+    align-items: end;
     margin-bottom: 30px;
     padding: 0 10px;
 }
@@ -117,7 +117,7 @@ nav ul{
 .headerartikel .link-next {
     font-size: 16px;
     font-weight: 600;
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
