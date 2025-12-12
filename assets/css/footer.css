@@ -1,12 +1,11 @@
 
 footer{
     display: flex;
-    padding: 52px 81px 52px 81px;
-    height: 322px;
-    width: auto;
-    gap: 330px;
+    padding: 52px clamp(20px, 5vw, 81px);
+    gap: clamp(20px, 15vw, 330px);
     color:#ffffff;
     background-color: #96a78d;
+    flex-wrap: wrap;
 }
 
 .explore ul{
@@ -20,6 +19,7 @@ footer{
 .explore a{
     text-decoration: none;
     color: #ffffff;
+    font-size: clamp(8px, 5vw, 15px) ;
 }
 
 .contact{
@@ -31,10 +31,12 @@ footer{
 .contact a{
     text-decoration: none;
     color: #ffffff;
+    font-size: clamp(8px, 5vw, 15px) ;
 }
 
-.contact h1{
+.contact h1, .explore h1{
     margin-bottom: 0px;
+    font-size: clamp(25px, 5vw, 40px) ;
 }
 
 .logo{
