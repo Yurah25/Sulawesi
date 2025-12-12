@@ -16,13 +16,20 @@
     <header>
         <p>SulaPedia</p>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="jelajah.php">Jelajahi</a></li>
                 <li><a href="#">quiz</a></li>
             </ul>
         </nav>
-        <a href="login.php">Login</a>
+            <a href="login.php">Login</a>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+            </div>
+
+        
     </header>
     <main>
         <section class="hero">
@@ -87,5 +94,12 @@
     </main>
     </div>
     <?php include("includes/footer.php/footer.php") ?>
+    <script>
+    function toggleMenu() {
+        const menu = document.querySelector('.nav-links');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
 </body>
 </html>

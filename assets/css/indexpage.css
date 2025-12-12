@@ -5,6 +5,21 @@
     box-sizing: border-box;
 }
 
+.hamburger-menu {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
 header{
     font-size: clamp(14px, 2vw, 20px);
     display: flex;
@@ -140,7 +155,7 @@ nav ul{
 
 .card {
     max-width: 361px;
-    padding: 24px 30px 70px 30px;
+    padding: 24px 30px;
     border-radius: 23.41px;
     border: 1px solid #0A400C;
     background: linear-gradient(to bottom, #D9E9CF 80%, #96A18F 100%);
@@ -212,11 +227,11 @@ nav ul{
 }
 
 .kontak-all {
-    font-size: 15px;
+    font-size: clamp(9px, 3vw, 15px);
 }
 
 .kontak-all p{
-    font-size: 25px;
+    font-size: clamp(10px, 3vw, 25px);
 }
 
 .card-tim img{
@@ -231,9 +246,9 @@ nav ul{
 
 .card-tim{
     flex: 1 1 280px;
-    margin-bottom: 84px;
+    margin-bottom: 30px;
     max-width: 361px;
-    padding: 24px 30px 70px 30px;
+    padding: 24px 30px;
     justify-content: center;
     border-radius: 23.41px;
     border: 1px solid #0A400C;
@@ -257,3 +272,50 @@ nav ul{
         text-align: center;
     }
 } 
+
+@media screen and (max-width: 374px){
+    .card-tim{
+        max-width: 300px;
+    }
+    .card-tim img{
+        max-width: 220px;
+    }
+} 
+
+@media screen and (max-width: 425px) {
+    
+    .hamburger-menu {
+        display: flex; 
+        z-index: 100;
+    }
+
+
+    nav {
+        justify-content: flex-end;
+        gap: 15px; 
+    }
+
+    nav ul.nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0; 
+        width: 100%; 
+        background-color: #96a78d;
+        padding: 20px 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+        z-index: 99;
+    }
+
+    nav ul.nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+   
+    nav ul.nav-links.active {
+        display: flex;
+    }
+}
