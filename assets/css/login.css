@@ -38,9 +38,9 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 50px 30px 50px;
-    width: 407px;
-    height: 454px;
+    padding: 30px 50px;
+    width: 450px;
+    height: 500px;
 }
 
 form a{
