@@ -47,10 +47,10 @@ $result = mysqli_query($conn, $query);
     <h1 class="page-title">Jelajahi Sulawesi</h1>
     
     <div class="filter-container">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search">
-        </div>
+        <form action="" method="GET" class="search-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" name="keyword" placeholder="Search" autocomplete="off" value="<?php if(isset($_GET['keyword'])){ echo $_GET['keyword']; } ?>">
+        </form>
 
         <div class="categories">
             <a href="?kategori=Budaya" class="cat-btn">Budaya</a>
@@ -58,6 +58,9 @@ $result = mysqli_query($conn, $query);
             <a href="?kategori=Wisata Alam" class="cat-btn">Wisata Alam</a>
             <a href="?kategori=Sulawesi Utara" class="cat-btn">Sulawesi Utara</a>
             <a href="?kategori=Sulawesi Selatan" class="cat-btn">Sulawesi Selatan</a>
+            <a href="?kategori=Sulawesi Tengah" class="cat-btn">Sulawesi Tengah</a>
+            <a href="?kategori=Sulawesi Tenggara" class="cat-btn">Sulawesi Tenggara</a>
+            <a href="?kategori=Sulawesi Barat" class="cat-btn">Sulawesi Barat</a>
             <a href="?kategori=Gorontalo" class="cat-btn">Gorontalo</a>
         </div>
     </div>
@@ -80,12 +83,18 @@ $result = mysqli_query($conn, $query);
         <?php 
             } 
         } else {
-            echo "<p style='text-align:center;'>Data tidak ditemukan.</p>";
+            echo "<p style='text-align:center; width: 100%; grid-column: 1/-1;'>Data tidak ditemukan.</p>";
         }
         ?>
     </div>
     </main>
     </div>
     <?php include("includes/footer.php/footer.php"); ?>
+    <script>
+    function toggleMenu() {
+        const menu = document.querySelector('.nav-links');
+        menu.classList.toggle('active');
+    }
+    </script>
 </body>
 </html>
