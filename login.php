@@ -10,13 +10,14 @@
     <title>Login page</title>
 </head>
 <body>
+    <div class="login-container">
     <header>
     <h1>Sulapedia</h1>
     <p>Access cultural, culinary, and tourism information from all around Sulawesi</p>    
     </header>
 
     <main>
-    <form action="" method="post">
+    <form action="" method="post" class="login-box">
         <h1>Login</h1>
         <label for="email">Email </label>
         <input type="email" id="email" name="email" placeholder="Masukkan Email">
@@ -27,6 +28,6 @@
         <p>dont have an account yet?<a href="regis.php"> Regist here</a></p>
     </form>
     </main>
-    
+    </div>
 </body>
 </html>
