@@ -95,10 +95,10 @@
     </div>
     <?php include("includes/footer.php/footer.php") ?>
     <script>
-    function toggleMenu() {
-        const menu = document.querySelector('.nav-links');
-        menu.classList.toggle('active');
-    }
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
