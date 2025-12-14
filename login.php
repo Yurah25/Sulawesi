@@ -14,6 +14,7 @@
     <h1>Sulapedia</h1>
     <p>Access cultural, culinary, and tourism information from all around Sulawesi</p>    
     </header>
+
     <main>
     <form action="" method="post">
         <h1>Login</h1>
@@ -25,7 +26,6 @@
         <input type="submit" id="submit" value="Login">
         <p>dont have an account yet?<a href="regis.php"> Regist here</a></p>
     </form>
-        
     </main>
     
 </body>
