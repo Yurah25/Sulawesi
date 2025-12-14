@@ -11,8 +11,9 @@
 </head>
 <body>
     <div class="login-container">
+        <a class="kembali" href="index.php">kembali</a>
     <header>
-    <h1>Sulapedia</h1>
+    <h1>Sulapedia</h1> 
     <p>Access cultural, culinary, and tourism information from all around Sulawesi</p>    
     </header>
 

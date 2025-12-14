@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sulawesi";
+$dbname = "db_sulapedia";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 

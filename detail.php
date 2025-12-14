@@ -39,7 +39,7 @@ if(!$row) {
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="jelajah.php">Jelajahi</a></li>
-                <li><a href="#">Quiz</a></li>
+                <li><a href="quiz.php">Quiz</a></li>
             </ul>
         </nav>
         <a href="login.php">Login</a>

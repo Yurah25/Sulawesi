@@ -15,6 +15,7 @@
     <p>Create your account and explore the culture, cuisine, and tourism of Sulawesi in one platform</p>
     </div>
     <form action="" method="post">
+        <a class="kembali" href="index.php">kembali</a>
         <h1>Sign up</h1>
         <label for="email">Username </label>
         <input type="text" id="username" name="username" placeholder="Masukkan Username">
