@@ -160,6 +160,9 @@ nav ul{
     border-radius: 20px;
     border: 1px solid #5A6C50;
     padding: 20px;
+    width: 100%;         
+    max-width: 400px;     
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
@@ -184,6 +187,13 @@ nav ul{
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s;
+}
+
+.cat-btn.active {
+    background-color: #48593F; 
+    color: #ffffff; 
+    border-color: #48593F;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .card:hover img {

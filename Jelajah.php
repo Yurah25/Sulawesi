@@ -1,14 +1,23 @@
-
 <?php
 include 'config/database.php';
 
-$where_clause = "";
-$kategori_terpilih = "";
+$kategori_aktif = isset($_GET['kategori']) ? $_GET['kategori'] : '';
 
-if (isset($_GET['kategori'])) {
-    $kategori_terpilih = $_GET['kategori'];
-    $kat_safe = mysqli_real_escape_string($koneksi, $kategori_terpilih);
-    $where_clause = "WHERE kategori = '$kat_safe'";
+$where_parts = [];
+
+if (isset($_GET['kategori']) && !empty($_GET['kategori'])) {
+    $kat = mysqli_real_escape_string($conn, $_GET['kategori']);
+    $where_parts[] = "(kategori = '$kat' OR judul LIKE '%$kat%' OR deskripsi LIKE '%$kat%')";
+}
+
+if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
+    $keyword = mysqli_real_escape_string($conn, $_GET['keyword']);
+    $where_parts[] = "(judul LIKE '%$keyword%' OR deskripsi LIKE '%$keyword%')";
+}
+
+$where_clause = "";
+if (count($where_parts) > 0) {
+    $where_clause = "WHERE " . implode(" AND ", $where_parts);
 }
 
 $query = "SELECT * FROM artikel $where_clause";
@@ -53,15 +62,18 @@ $result = mysqli_query($conn, $query);
         </form>
 
         <div class="categories">
-            <a href="?kategori=Budaya" class="cat-btn">Budaya</a>
-            <a href="?kategori=Kuliner" class="cat-btn">Kuliner</a>
-            <a href="?kategori=Wisata Alam" class="cat-btn">Wisata Alam</a>
-            <a href="?kategori=Sulawesi Utara" class="cat-btn">Sulawesi Utara</a>
-            <a href="?kategori=Sulawesi Selatan" class="cat-btn">Sulawesi Selatan</a>
-            <a href="?kategori=Sulawesi Tengah" class="cat-btn">Sulawesi Tengah</a>
-            <a href="?kategori=Sulawesi Tenggara" class="cat-btn">Sulawesi Tenggara</a>
-            <a href="?kategori=Sulawesi Barat" class="cat-btn">Sulawesi Barat</a>
-            <a href="?kategori=Gorontalo" class="cat-btn">Gorontalo</a>
+            <a href="jelajah.php" class="cat-btn <?php echo ($kategori_aktif == '') ? 'active' : ''; ?>">Semua</a>
+
+            <a href="?kategori=Budaya" class="cat-btn <?php echo ($kategori_aktif == 'Budaya') ? 'active' : ''; ?>">Budaya</a>
+            <a href="?kategori=Kuliner" class="cat-btn <?php echo ($kategori_aktif == 'Kuliner') ? 'active' : ''; ?>">Kuliner</a>
+            <a href="?kategori=Wisata Alam" class="cat-btn <?php echo ($kategori_aktif == 'Wisata Alam') ? 'active' : ''; ?>">Wisata Alam</a>
+            
+            <a href="?kategori=Sulawesi Utara" class="cat-btn <?php echo ($kategori_aktif == 'Sulawesi Utara') ? 'active' : ''; ?>">Sulawesi Utara</a>
+            <a href="?kategori=Sulawesi Selatan" class="cat-btn <?php echo ($kategori_aktif == 'Sulawesi Selatan') ? 'active' : ''; ?>">Sulawesi Selatan</a>
+            <a href="?kategori=Sulawesi Tengah" class="cat-btn <?php echo ($kategori_aktif == 'Sulawesi Tengah') ? 'active' : ''; ?>">Sulawesi Tengah</a>
+            <a href="?kategori=Sulawesi Tenggara" class="cat-btn <?php echo ($kategori_aktif == 'Sulawesi Tenggara') ? 'active' : ''; ?>">Sulawesi Tenggara</a>
+            <a href="?kategori=Sulawesi Barat" class="cat-btn <?php echo ($kategori_aktif == 'Sulawesi Barat') ? 'active' : ''; ?>">Sulawesi Barat</a>
+            <a href="?kategori=Gorontalo" class="cat-btn <?php echo ($kategori_aktif == 'Gorontalo') ? 'active' : ''; ?>">Gorontalo</a>
         </div>
     </div>
 
