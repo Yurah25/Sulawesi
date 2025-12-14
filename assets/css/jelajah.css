@@ -16,7 +16,7 @@ header{
     padding: 15px clamp(15px, 3vw, 25px);
     background-color: #81906780;
     border-radius: 50px;        
-    z-index: 10;
+    z-index: 1000;
     position: relative;
 }
 
