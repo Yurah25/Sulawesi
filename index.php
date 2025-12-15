@@ -93,7 +93,7 @@ session_start();
                     <p>H1D024058</p>
                 </div>
                 <div class="card-tim">
-                    <img src="assets/img/pulau sulawesi.png" alt="Inas">
+                    <img src="assets/img/inas.jpg" alt="Inas">
                     <h1>M. Inas Pratama</h1>
                     <p>H1D024063</p>
                 </div>
