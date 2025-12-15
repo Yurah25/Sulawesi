@@ -46,7 +46,7 @@ $user_aktif = $total_user;
             <ul class="menu">
                 <li><a href="dashboard.php" class="active"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a></li>
                 <li><a href="kelola_artikel.php"><i class='bx bxs-file-doc'></i> <span>Kelola Artikel</span></a></li>
-                <li><a href="#"><i class='bx bx-clipboard'></i> <span>Kelola Quiz</span></a></li>
+                <li><a href="kelola_quiz.php"><i class='bx bx-clipboard'></i> <span>Kelola Quiz</span></a></li>
                 <li><a href="#"><i class='bx bx-group'></i> <span>Peserta Quiz</span></a></li>
             </ul>
 
