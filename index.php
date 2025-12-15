@@ -88,7 +88,7 @@ session_start();
                     <p>H1D024049</p>
                 </div>
                 <div class="card-tim">
-                    <img src="assets/img/pulau sulawesi.png" alt="Nayli">
+                    <img src="assets/img/nayli.jpg" alt="Nayli">
                     <h1>Nayli Ghassaniy L. N.</h1>
                     <p>H1D024058</p>
                 </div>
