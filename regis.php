@@ -1,3 +1,32 @@
+<?php
+include 'config/database.php';
+
+if (isset($_POST['register'])) {
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password']; 
+
+    
+    $cek = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    if (mysqli_num_rows($cek) > 0) {
+        echo "<script>alert('Email sudah terdaftar!');</script>";
+    } elseif ($password !== $confirm_password) {
+        echo "<script>alert('Konfirmasi password tidak cocok!');</script>";
+    } else {
+        $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+   
+        $query = "INSERT INTO users (username, email, password, role) VALUES ('$username', '$email', '$pass_hash', 'user')";
+        
+        if (mysqli_query($conn, $query)) {
+            echo "<script>alert('Registrasi Sukses! Silakan Login.'); window.location='login.php';</script>";
+        } else {
+            echo "<script>alert('Gagal: " . mysqli_error($conn) . "');</script>";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +54,7 @@
         <input type="password" id="password" name="password" placeholder="Masukkan Password">
         <label for="confirm-password">Confirm Password</label>
         <input type="password" id="confirm-password" name="confirm-password" placeholder="Masukkan Ulang Password">
-        <input type="submit" id="submit" value="Create Account">
+        <input type="submit" id="submit" name="register" value="Create Account">
         <p>Already have an account?<a href="login.php" >Login in</a></p>
     </form>
 </body>

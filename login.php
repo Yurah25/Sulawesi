@@ -1,3 +1,37 @@
+<?php
+session_start();
+include 'config/database.php';
+
+if (isset($_POST['login'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = $_POST['password']; 
+    $query = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    
+    if (mysqli_num_rows($query) > 0) {
+        $data = mysqli_fetch_assoc($query);
+        
+        if (password_verify($password, $data['password'])) {
+            
+            $_SESSION['username'] = $data['username'];
+            $_SESSION['role'] = $data['role'];
+            $_SESSION['status'] = "login";
+
+            if ($data['role'] == "admin") {
+                header("Location: admin/dashboard.php");
+            } else {
+                header("Location: index.php");
+            }
+            exit;
+
+        } else {
+            echo "<script>alert('Password salah!');</script>";
+        }
+    } else {
+        echo "<script>alert('Email tidak terdaftar!');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +59,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Masukkan Password">
         <a href="" class="forgot">forgot password?</a>
-        <input type="submit" id="submit" value="Login">
+        <input type="submit" id="login" name="login" value="Login">
         <p>dont have an account yet?<a href="regis.php"> Regist here</a></p>
     </form>
     </main>

@@ -91,7 +91,7 @@ a{
     text-decoration: none;
 }
 
-#submit{
+#login{
     background-color: #fefae0fa;
     margin: clamp(10px,15vw,35px) 0px;
     font-size: 15px;

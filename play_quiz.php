@@ -1,6 +1,6 @@
 <?php
 include 'config/database.php';
-
+session_start();
 $quiz_id = isset($_GET['id']) ? $_GET['id'] : 1;
 
 $query_info = mysqli_query($conn, "SELECT * FROM daftar_quiz WHERE id = '$quiz_id'");
@@ -34,7 +34,14 @@ $json_soal = json_encode($soal_array);
                 <li><a href="quiz.php">Quiz</a></li>
             </ul>
         </nav>
-        <a href="#" class="user-btn">User</a>
+        <div class="auth-buttons">
+            <?php if(isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
+                <span style="margin-right: 10px; font-weight: 500;">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                <a href="logout.php" style="background-color: #8B0000; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 14px;">Logout</a>
+            <?php else: ?>
+                <a href="login.php" style="background-color: #49574A; color: #FEFAE0; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Login</a>
+            <?php endif; ?>
+            </div>
          <div class="hamburger-menu" onclick="toggleMenu()">
             <span></span>
             <span></span>

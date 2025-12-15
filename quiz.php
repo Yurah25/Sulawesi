@@ -31,9 +31,14 @@ $result = mysqli_query($conn, $query);
             </ul>
         </nav>
         
-        <a href="#" class="user-btn">
-            <img src="assets/img/user-icon.svg" alt="" style="width:20px; vertical-align:middle; margin-right:5px;"> User
-        </a>
+        <div class="auth-buttons">
+            <?php if(isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
+                <span style="margin-right: 10px; font-weight: 500;">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                <a href="logout.php" style="background-color: #8B0000; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 14px;">Logout</a>
+            <?php else: ?>
+                <a href="login.php" style="background-color: #49574A; color: #FEFAE0; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Login</a>
+            <?php endif; ?>
+            </div>
 
         <div class="hamburger-menu" onclick="toggleMenu()">
             <span></span>
