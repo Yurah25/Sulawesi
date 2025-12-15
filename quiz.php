@@ -2,8 +2,17 @@
 session_start();
 include 'config/database.php';
 
-$query = "SELECT * FROM daftar_quiz";
+$query = "SELECT * FROM daftar_quiz ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
+
+$user_id = null;
+if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
+    $sess_username = $_SESSION['username'];
+    $q_user = mysqli_query($conn, "SELECT id FROM users WHERE username = '$sess_username'");
+    if($row_u = mysqli_fetch_assoc($q_user)){
+        $user_id = $row_u['id'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,23 +66,46 @@ $result = mysqli_query($conn, $query);
             <?php
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $persen = ($row['skor_user'] / $row['total_soal']) * 100;
-            ?>
+                    $quiz_id = $row['id'];
+        
+                    $q_soal = mysqli_query($conn, "SELECT count(*) as total FROM soal_quiz WHERE quiz_id='$quiz_id'");
+                    $total_soal = mysqli_fetch_assoc($q_soal)['total'];
+                    if($total_soal == 0) $total_soal = 1; 
+                        $persen = 0;
+                        $status_main = "Mulai";
+        
+                    if($user_id != null){
+                        $q_skor = mysqli_query($conn, "SELECT nilai FROM scores WHERE quiz_id='$quiz_id' AND user_id='$user_id' ORDER BY id DESC LIMIT 1");
+                            if(mysqli_num_rows($q_skor) > 0){
+                                $d_skor = mysqli_fetch_assoc($q_skor);
+                                $persen = $d_skor['nilai'];
+                                $status_main = "Main Lagi";
+            }
+        }
+        ?>
             <div class="quiz-card">
-                <div class="card-top">
-                    <h2>Quiz <?php echo $row['skor_user']; ?>/<?php echo $row['total_soal']; ?></h2>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: <?php echo $persen; ?>%;"></div>
-                </div>
-
-                <div class="card-bottom">
-                    <span class="category-pill"><?php echo $row['kategori']; ?></span>
-                    <a href="play_quiz.php?id=<?php echo $row['id']; ?>" class="start-btn">Mulai</a>
-                </div>
+            <div class="card-top">
+                <h2><?php echo htmlspecialchars($row['judul']); ?></h2>
+                <p style="font-size: 12px; color: #fff; margin-top: 5px;">
+                    <?php echo $row['waktu_pengerjaan']; ?> Menit | <?php echo $total_soal; ?> Soal
+                </p>
             </div>
-            <?php 
+            
+            <div class="progress-container">
+                <div class="progress-bar" style="width: <?php echo $persen; ?>%;"></div>
+            </div>
+
+            <div class="card-bottom">
+                <span class="category-pill"><?php echo $row['kategori']; ?></span>
+                
+                <?php if(isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
+                    <a href="play_quiz.php?id=<?php echo $row['id']; ?>" class="start-btn"><?php echo $status_main; ?></a>
+                <?php else: ?>
+                    <a href="login.php" onclick="return confirm('Silakan login dulu!')" class="start-btn">Login</a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php 
                 } 
             } else {
                 echo "<p style='text-align:center;'>Belum ada quiz tersedia.</p>";
