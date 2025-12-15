@@ -2,21 +2,33 @@
 include 'config/database.php';
 
 if (isset($_POST['register'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $username = htmlspecialchars(stripslashes(trim($_POST['username'])));
+    $email    = htmlspecialchars(stripslashes(trim($_POST['email'])));
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm-password']; 
+    $username_safe = mysqli_real_escape_string($conn, $username);
+    $email_safe    = mysqli_real_escape_string($conn, $email);
 
+    $cek = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email_safe' OR username = '$username_safe'");
     
-    $cek = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
     if (mysqli_num_rows($cek) > 0) {
-        echo "<script>alert('Email sudah terdaftar!');</script>";
-    } elseif ($password !== $confirm_password) {
+        $row = mysqli_fetch_assoc($cek);
+        if ($row['email'] == $email) {
+            echo "<script>alert('Email sudah terdaftar!');</script>";
+        } else {
+            echo "<script>alert('Username sudah digunakan, silakan pilih yang lain!');</script>";
+        }
+    } 
+    elseif (strlen($password) < 8) {
+        echo "<script>alert('Password terlalu pendek! Minimal 8 karakter.');</script>";
+    }
+    elseif ($password !== $confirm_password) {
         echo "<script>alert('Konfirmasi password tidak cocok!');</script>";
-    } else {
+    } 
+    else {
         $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-   
-        $query = "INSERT INTO users (username, email, password, role) VALUES ('$username', '$email', '$pass_hash', 'user')";
+
+        $query = "INSERT INTO users (username, email, password, role) VALUES ('$username_safe', '$email_safe', '$pass_hash', 'user')";
         
         if (mysqli_query($conn, $query)) {
             echo "<script>alert('Registrasi Sukses! Silakan Login.'); window.location='login.php';</script>";
@@ -47,13 +59,13 @@ if (isset($_POST['register'])) {
         <a class="kembali" href="index.php">kembali</a>
         <h1>Sign up</h1>
         <label for="email">Username </label>
-        <input type="text" id="username" name="username" placeholder="Masukkan Username">
+        <input type="text" id="username" name="username" placeholder="Masukkan Username" required>
         <label for="email">Email </label>
-        <input type="email" id="email" name="email" placeholder="Masukkan Email">
+        <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan Password">
+        <input type="password" id="password" name="password" placeholder="Masukkan Password" required>
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Masukkan Ulang Password">
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Masukkan Ulang Password" required>
         <input type="submit" id="submit" name="register" value="Create Account">
         <p>Already have an account?<a href="login.php" >Login in</a></p>
     </form>
